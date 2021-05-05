@@ -3,6 +3,6 @@ Supporting information for paper on benchmarking enhanced sampling techniques fo
 
 ## What's Here
 
-- [`SI/supplementary-documents/`](SI/supplementary-documents):
-  - [`scripts/`](SI/supplementary-documents/scripts): Folder containing example scripts used for running and analyzing MD/BLUES/grand simulations.
-  - [`input-files/`](SI/supplementary-documents/input-files): Folder containing input files for simulations.
+- [`supplementary-documents/`](supplementary-documents):
+  - [`scripts/`](supplementary-documents/scripts): Folder containing example scripts used for running and analyzing MD/BLUES/grand simulations.
+  - [`input-files/`](supplementary-documents/input-files): Folder containing input files for simulations.
