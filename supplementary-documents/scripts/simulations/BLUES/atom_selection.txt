@@ -1,0 +1,13 @@
+Atoms selected as the center of the spherical region within which the water hops occur:
+
+PDB code    Atom name
+2QBS        C4
+2XAB        C6
+2XJG        C6
+2ZFF        C2
+3RLP        C10
+3RLQ        C11
+3RLR        C1
+4ZLZ        C14
+5I1Q        C9
+5I29        C6
