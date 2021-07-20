@@ -1,0 +1,13 @@
+Atoms selected as the center of the spherical region defined as GCMC region:
+
+PDB code    Atom name
+2QBS        SER216-CA, GLY220-CA
+2XAB        ASN36-CA, THR169-CA
+2XJG        ASN41-CA, THR174-CA
+2ZFF        TRP227-CA, PHE239-CA
+3RLP        SER43-CA, LYS176-CA
+3RLQ        SER44-CA, LYS177-CA
+3RLR        SER44-CA, LYS177-CA
+4ZLZ        GLY23-CA, ILE85-CA
+5I1Q        GLU51-CA, ASN83-CA
+5I29        GLU52-CA, ASN84-CA
