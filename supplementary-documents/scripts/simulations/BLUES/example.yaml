@@ -1,0 +1,98 @@
+output_dir: .
+outfname: water
+
+logger:
+  level: info
+  stream: True
+
+structure:
+  filename: complex.top
+  xyz: complex.gro
+  #  restart: previous_water.rst7    Uncomment if restart from a previous run
+
+system:
+  nonbondedMethod: PME
+  nonbondedCutoff: 10 * angstroms
+  constraints: HBonds
+  rigidWater: True
+  removeCMMotion: True
+  hydrogenMass: 3.024 * daltons
+  ewaldErrorTolerance: 0.005
+  flexibleConstraints: True
+  splitDihedrals: False
+
+  alchemical:
+    # Sterics
+    softcore_alpha: 0.5
+    softcore_a : 1
+    softcore_b : 1
+    softcore_c : 6
+
+    # Electrostatics
+    softcore_beta : 0.0
+    softcore_d : 1
+    softcore_e : 1
+    softcore_f : 2
+
+    annihilate_electrostatics : True
+    annihilate_sterics : False
+
+#Uncomment freeze or restraints section to freeze/restrain atoms in the MD and alchemical system
+#freeze:
+#  freeze_selection: ':19513'
+
+restraints:
+    selection: ':8283|(!@H=&!(:HOH|:CL,NA))' # restraining all atoms on the ligand (resid 8283) and all non-H atoms on the protein
+    weight: 10
+
+simulation:
+  platform: CUDA
+  properties: # properties are optional
+    CudaPrecision: single
+    CudaDeviceIndex: 0
+  dt: 0.004 * picoseconds    #HMR
+ # dt: 0.002 * picoseconds
+  friction: 1 * 1/picoseconds
+  temperature: 277 * kelvin
+  nIter: 3000   # number of NCMC iterations
+  nstepsMD: 1000    # number of MD steps for each iteration
+  nstepsNC: 5000 # number of NCMC steps for each iteration
+  nprop: 1
+  propRegion: electrostatics
+  prop_lambda: 0.3
+  pressure: 1 * atmospheres #To run BLUES in NPT,  specify a ``pressure``, comment it if NVT is desired
+
+md_reporters:
+  state:
+    reportInterval: 250 
+  traj_netcdf:
+    reportInterval: 250 
+  restart:
+    reportInterval: 250 
+  stream:
+    title: md
+    reportInterval: 250 
+    totalSteps: 3000000 # nIter *nStepsMD
+    step: True
+    speed: True
+    progress: True
+    remainingTime: True
+    currentIter : True
+    volume: True
+
+ncmc_reporters:
+  traj_netcdf:
+    frame_indices: [1, 0.5, -1]
+    alchemicalLambda: True
+    protocolWork: True
+  stream:
+    title: ncmc
+    reportInterval: 250
+    totalSteps: 15000000 #use nIter *  nStepsNC
+    step: True
+    speed: True
+    progress: True
+    remainingTime : True
+    protocolWork : True
+    alchemicalLambda : True
+    currentIter : True
