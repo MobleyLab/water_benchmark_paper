@@ -1,5 +1,7 @@
 # water_benchmark_paper
-Supporting information for paper on benchmarking enhanced sampling techniques for water sampling
+Supporting information for the paper on benchmarking enhanced sampling techniques for water sampling
+
+J. Chem. Theory Comput. 2022, 18, 3, 1359–1381
 
 ## What's Here
 
